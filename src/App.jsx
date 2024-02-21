@@ -1,15 +1,15 @@
 
 import './App.css'
-import EffectHook from './lecture/EffectHook'
-import LocalStorageData from './lecture/LocalStorageData'
+import DynamicData from './Components/DynamicData'
+
 
 function App() {
 
   return (
-    <>
-<EffectHook/>
-<LocalStorageData/>
-    </>
+    <div className='app'>
+
+<DynamicData/>
+</div>
   )
 }
 
