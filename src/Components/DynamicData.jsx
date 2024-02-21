@@ -8,8 +8,10 @@ const DynamicData = () => {
   const [error, setError] = useState(null);
   const [count, setCount] = useState(1);
 
-
   useEffect(() => {
+    const localCount = Number(localStorage.getItem("count"));
+    setCount(localCount);
+
     fetch(`https://fakestoreapi.com/products/${count}`)
       .then((res) => res.json())
       .then((data) => {
@@ -20,7 +22,7 @@ const DynamicData = () => {
         setError(error);
         setLoading(false);
       });
-      document.title = ` Product | Dynamic Data ${count}`
+    document.title = ` Product | Dynamic Data ${count}`;
   }, [count]);
 
   if (loading) {
@@ -63,7 +65,7 @@ const DynamicData = () => {
             fontFamily={"sans-serif"}
             color={"#1A202C"}
             as={"p"}
-            mb='1'
+            mb="1"
           >
             {product.title}
           </Text>
@@ -72,14 +74,24 @@ const DynamicData = () => {
             fontFamily={"sans-serif"}
             color={"#1A202C"}
             as={"span"}
-            mb='1'
+            mb="1"
           >
             {product.description}
           </Text>
-          <Box gap={"5px"} display={"flex"}
-          mb='1'>
-            <IconButton onClick={()=> setCount(count + 1)}  aria-label="Search database" icon={<ArrowBackIcon />} />
-            <IconButton onClick={()=> setCount(count === 1 ? 1 : count - 1 )}
+          <Box gap={"5px"} display={"flex"} mb="1">
+            <IconButton
+              onClick={() => {
+                setCount(count + 1);
+                localStorage.setItem("count", count + 1);
+              }}
+              aria-label="Search database"
+              icon={<ArrowBackIcon />}
+            />
+            <IconButton
+              onClick={() => {
+                setCount(count === 1 ? 1 : count - 1);
+                localStorage.setItem("count", count - 1);
+              }}
               aria-label="Search database"
               icon={<ArrowForwardIcon />}
             />
