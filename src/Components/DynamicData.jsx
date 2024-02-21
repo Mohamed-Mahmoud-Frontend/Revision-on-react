@@ -20,6 +20,7 @@ const DynamicData = () => {
         setError(error);
         setLoading(false);
       });
+      document.title = ` Product | Dynamic Data ${count}`
   }, [count]);
 
   if (loading) {
