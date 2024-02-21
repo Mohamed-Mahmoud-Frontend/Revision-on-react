@@ -78,7 +78,7 @@ const DynamicData = () => {
           <Box gap={"5px"} display={"flex"}
           mb='1'>
             <IconButton onClick={()=> setCount(count + 1)}  aria-label="Search database" icon={<ArrowBackIcon />} />
-            <IconButton onClick={()=> setCount(count - 1)}
+            <IconButton onClick={()=> setCount(count === 1 ? 1 : count - 1 )}
               aria-label="Search database"
               icon={<ArrowForwardIcon />}
             />
