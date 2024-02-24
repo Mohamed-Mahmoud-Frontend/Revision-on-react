@@ -1,15 +1,23 @@
 
+import { createContext } from 'react';
 import './App.css'
 import DynamicData from './Components/DynamicData'
+import ContextHook from './lecture/ContextHook';
+
+
+export let userContext = createContext(null);
 
 
 function App() {
-
+  let user = {
+    name:"mohamed"
+    ,age:20
+        }
   return (
-    <div className='app'>
-
+    <userContext.Provider value={user} className='app'>
+<ContextHook/>
 <DynamicData/>
-</div>
+</userContext.Provider>
   )
 }
 
