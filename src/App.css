@@ -1,13 +1,34 @@
-.app {
-  margin: 0;
+*{
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: #22222210;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
-  /* margin-top: 100px; */
+}
+
+
+.formNative{
+  width: 100VW;
+  height: 100VH;
+
+display: flex;
+flex-direction: column;
+padding: 5px;
+background: #888;
+}
+.formNative div{
+  width: 50%;
+  height: 50%;
+margin-inline: auto;
+margin-top: 50px;
+  gap: 5PX;
+  display: flex;flex-direction: column;
+}
+.formNative div label{
+color: #ffffff;
+font-size: 22px;
+font-weight: bold;
+}
+.formNative div input{
+padding: 10px;
+border-radius: 5px;
+
 }
